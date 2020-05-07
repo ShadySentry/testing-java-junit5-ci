@@ -1,9 +1,11 @@
-# Java Maven CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-java/ for more details
-#
-version: 2
-jobs:
+version: 2.1
+
+orbs:
+  maven: circleci/maven@0.0.12
+
+workflows:
+  maven_test:
+    jobs:
     build:
         docker:
             # specify the version you desire here
@@ -39,5 +41,3 @@ jobs:
 
             # run tests!
             - run: mvn integration-test
-
-
